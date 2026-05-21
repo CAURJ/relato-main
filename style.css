@@ -1,0 +1,33 @@
+.dts{
+
+    width: 115px !important;
+
+}
+
+.tentativas{
+
+    width: 60px !important;
+}
+
+body {
+    min-width: 700px;
+}
+
+.table-sm td,
+.table-sm th {
+padding-top: 0.0rem;
+padding-bottom: 0.0rem;
+}
+
+p {
+    margin-bottom: 8px;
+
+
+}
+
+.espacamento_simples {
+    margin-bottom: 8px;
+    font-size: 14.5px;
+    line-height: 17px;
+
+}
