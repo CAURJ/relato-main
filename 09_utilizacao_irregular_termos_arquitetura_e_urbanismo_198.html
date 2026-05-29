@@ -1796,6 +1796,29 @@
 
             <legend class="w-auto px-1" id="legend_voto">Voto</legend>
 
+<!-- Decisão -->
+
+<label class="mb-2">
+    <strong>Decisão pela Manutenção ou Arquivamento do Auto de Infração?</strong>
+</label>
+
+<div class="mb-3">
+
+    <input type="radio" name="decisao_auto" id="radio_manutencao">
+    <label for="radio_manutencao">Manutenção</label>
+
+    <input type="radio" name="decisao_auto" id="radio_arquivamento" class="ml-3">
+    <label for="radio_arquivamento">Arquivamento</label>
+
+</div>
+
+
+
+<label class="mb-3" for="" id="lab_razoes_decisao">
+    <strong>Razões da Decisão</strong>
+</label>
+
+
 
             <label class="mb-3" for="" id="lab_razoes_decisao"><strong>Razões da Decisão</strong></label>
             <textarea class="form-control my-1" id="area_razoes_decisao" cols="30" rows="5"
@@ -4707,6 +4730,54 @@
         };
 
     </script>
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const campoRazoes = document.getElementById("area_razoes_decisao");
+
+    const radioManutencao = document.getElementById("radio_manutencao");
+
+    const radioArquivamento = document.getElementById("radio_arquivamento");
+
+
+    const textoManutencao =
+`Diante do exposto acima, é evidente a infração ao exercício profissional cometido pela parte interessada, estando ela ainda irregular e com a multa não paga.`;
+
+
+    const textoArquivamento =
+`Diante do exposto acima, entende-se que não houve infração ao exercício profissional cometida pela parte interessada, estando ela isenta do pagamento de multa.`;
+
+
+    radioManutencao.addEventListener("change", function () {
+
+        if (this.checked) {
+
+            campoRazoes.value = textoManutencao;
+
+        }
+
+    });
+
+
+    radioArquivamento.addEventListener("change", function () {
+
+        if (this.checked) {
+
+            campoRazoes.value = textoArquivamento;
+
+        }
+
+    });
+
+});
+
+</script>
+
+</body>
+</html>
+
 
 
 
