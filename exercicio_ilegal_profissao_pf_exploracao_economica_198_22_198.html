@@ -771,6 +771,22 @@
             </div>
 
 
+<!-- ===================== NOVO CAMPO: Transcrição do Check-list da GerFis ===================== -->
+            <div class="mt-3" style="border: 1px solid #dee2e6; border-radius: 6px; padding: 12px;">
+                <label class="mb-2" style="">
+                    <strong>Transcrição do Check-list da GerFis</strong>
+                    <span style="font-weight: normal;">(campo não obrigatório)</span>
+                </label>
+                <textarea
+                    class="form-control"
+                    id="textarea_checklist_gerfiz"
+                    rows="6"
+                    style="width: 100%; padding: 10px;"
+                    placeholder="Colar aqui as informações que estão descritas no Histórico do Processo tramitado no SICCAU."></textarea>
+            </div>
+            <!-- ===================== FIM DO NOVO CAMPO ===================== -->
+
+
 
         </fieldset>
 
@@ -2144,6 +2160,12 @@
                     </p>
 
 
+<!-- ===================== NOVO: Transcrição do Check-list da GerFis - saída impressa ===================== -->
+                    <p id="p_checklist_gerfiz_label_final" style="display:none;"><strong>Transcrição do Check-list da GerFis</strong> <span style="font-weight:normal;">(campo não obrigatório)</span></p>
+                    <p id="p_checklist_gerfiz_final"></p>
+                    <!-- ===================== FIM ===================== -->
+
+
 
                     <p id="legend_analises_consideracoes_final" style="font-weight: bold; text-transform: uppercase; margin-top: 25px;"></p>      
 
@@ -3492,6 +3514,19 @@
                     p_processo_com_defesa_checked_resolucoes_1_final.innerText = "";
                     p_processo_com_defesa_checked_resolucoes_2_final.innerText = "";
                 }
+
+// ===================== NOVO: Transcrição do Check-list da GerFis =====================
+                let textarea_checklist_gerfiz = document.getElementById("textarea_checklist_gerfiz");
+                let p_checklist_gerfiz_final = document.getElementById("p_checklist_gerfiz_final");
+                let p_checklist_gerfiz_label_final = document.getElementById("p_checklist_gerfiz_label_final");
+                if (textarea_checklist_gerfiz.value.trim() !== "") {
+                    p_checklist_gerfiz_label_final.style.display = "block";
+                    p_checklist_gerfiz_final.innerText = textarea_checklist_gerfiz.value;
+                } else {
+                    p_checklist_gerfiz_label_final.style.display = "none";
+                    p_checklist_gerfiz_final.innerText = "";
+                }
+                // ===================== FIM =====================
 
                 // Análises e Considerações
 
