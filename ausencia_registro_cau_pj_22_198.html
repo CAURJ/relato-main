@@ -763,10 +763,10 @@
 
             </div>
 
-<!-- ===================== NOVO CAMPO: Transcrição do Check-list da GerFis ===================== -->
+<!-- ===================== NOVO CAMPO: Transcrição do Check-list da GERFIS ===================== -->
             <div class="mt-3" style="border: 1px solid #dee2e6; border-radius: 6px; padding: 12px;">
                 <label class="mb-2" style="">
-                    <strong>Transcrição do Check-list da GerFis</strong>
+                    <strong>Transcrição do Check-list da GERFIS</strong>
                     <span style="font-weight: normal;">(campo não obrigatório)</span>
                 </label>
                 <textarea
@@ -1715,7 +1715,7 @@
 
 
 
-    <!-- Voto  -------------------------------------------------------------------------------------- -->
+        <!-- Voto  -------------------------------------------------------------------------------------- -->
 
     <div class="container my-4 " id="div_voto">
 
@@ -1726,7 +1726,7 @@
 <!-- Decisão -->
 
 <label class="mb-2">
-    <strong>Decisão pela Manutenção ou Arquivamento do Auto de Infração?</strong>
+    <strong>Síntese pela Manutenção ou Arquivamento do Auto de Infração</strong>
 </label>
 
 <div class="mb-3">
@@ -1740,21 +1740,31 @@
 </div>
 
 
+                <textarea class="form-control my-1" id="area_sintese_voto" cols="30" rows="5"
+style="width: 100%; padding: 5px;" placeholder="Texto a ser preenchido pelo relator."></textarea>
+
+
+            <!-- <p style="font-style: italic;">(Exemplo de preenchimento: Diante do exposto acima, é evidente a infração ao
+                exercício profissional cometido pela empresa interessada, estando ela ainda irregular/tendo ela
+                regularizado o fato gerador somente após o auto de infração e/mas com a multa não paga/com a multa
+                paga.)</p> -->
+
+
+
 
 <label class="mb-3" for="" id="lab_razoes_decisao">
     <strong>Razões da Decisão</strong>
 </label>
 
 
-
-            <label class="mb-3" for="" id="lab_razoes_decisao"><strong>Razões da Decisão</strong></label>
-            <textarea class="form-control my-1" id="area_razoes_decisao" cols="30" rows="5"
+                <textarea class="form-control my-1" id="area_razoes_decisao" cols="30" rows="5"
                 style="width: 100%; padding: 5px;" placeholder="Texto a ser preenchido pelo relator."></textarea>
 
             <!-- <p style="font-style: italic;">(Exemplo de preenchimento: Diante do exposto acima, é evidente a infração ao
                 exercício profissional cometido pela empresa interessada, estando ela ainda irregular/tendo ela
                 regularizado o fato gerador somente após o auto de infração e/mas com a multa não paga/com a multa
                 paga.)</p> -->
+
 
 
 
@@ -2084,8 +2094,8 @@
                         <span id="span_processo_com_defesa_checked_2_final"></span>
                     </p>
 
-<!-- ===================== NOVO: Transcrição do Check-list da GerFis - saída impressa ===================== -->
-                    <p id="p_checklist_gerfiz_label_final" style="display:none;"><strong>Transcrição do Check-list da GerFis</strong> <span style="font-weight:normal;">(campo não obrigatório)</span></p>
+<!-- ===================== NOVO: Transcrição do Check-list da GERFIS - saída impressa ===================== -->
+                    <p id="p_checklist_gerfiz_label_final" style="display:none;"><strong>Transcrição do Check-list da GERFIS</strong> <span style="font-weight:normal;">(campo não obrigatório)</span></p>
                     <p id="p_checklist_gerfiz_final"></p>
                     <!-- ===================== FIM ===================== -->
 
@@ -2178,7 +2188,11 @@
                     <p id="p_voto_final" style="font-weight: bold; text-transform: uppercase; margin-top: 25px;"></p>      
 
 
-                    <p id="area_razoes_decisao_final" ></p>
+                    <p id="area_sintese_voto_final"></p>
+
+<p><strong>Razões da Decisão</strong></p>
+<p id="area_razoes_decisao_final"></p>
+
 
                     <!-- condicionado -->    
                     <p >
@@ -2637,7 +2651,7 @@
         const razoesSemRegularizacao = document.getElementById('input_sem_regularizacao_sem_pagamento');
         const razoesSomenteRegularizacao = document.getElementById('input_somente_regularizacao');
         const razoesSomentePagamentoMulta = document.getElementById('input_somente_pagamento_multa');
-        const areaRazoesDecisao = document.getElementById('area_razoes_decisao');
+        const areaRazoesDecisao = document.getElementById('area_sintese_voto');
 
         // Função para atualizar a área de decisão com base no checkbox selecionado
         function atualizarAreaDecisao() {
@@ -3357,7 +3371,7 @@
                     p_processo_com_defesa_checked_resolucoes_2_final.innerText = "";
                 }
 
-// ===================== NOVO: Transcrição do Check-list da GerFis =====================
+// ===================== NOVO: Transcrição do Check-list da GERFIS =====================
                 let textarea_checklist_gerfiz = document.getElementById("textarea_checklist_gerfiz");
                 let p_checklist_gerfiz_final = document.getElementById("p_checklist_gerfiz_final");
                 let p_checklist_gerfiz_label_final = document.getElementById("p_checklist_gerfiz_label_final");
@@ -3687,8 +3701,13 @@
 
 
                 let area_razoes_decisao = document.getElementById("area_razoes_decisao");
-                let area_razoes_decisao_final = document.getElementById("area_razoes_decisao_final");
-                area_razoes_decisao_final.innerText = area_razoes_decisao.value;
+let area_razoes_decisao_final = document.getElementById("area_razoes_decisao_final");
+area_razoes_decisao_final.innerText = area_razoes_decisao.value;
+
+let area_sintese_voto = document.getElementById("area_sintese_voto");
+let area_sintese_voto_final = document.getElementById("area_sintese_voto_final");
+area_sintese_voto_final.innerText = area_sintese_voto.value;
+
 
 
 
@@ -4578,7 +4597,7 @@
 
 document.addEventListener("DOMContentLoaded", function () {
 
-    const campoRazoes = document.getElementById("area_razoes_decisao");
+    const campoRazoes = document.getElementById("area_sintese_voto");
 
     const radioManutencao = document.getElementById("radio_manutencao");
 
